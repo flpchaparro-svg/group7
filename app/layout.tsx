@@ -21,7 +21,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Security Guards Australia | Corporate Security & Mobile Patrols",
+  title: "Group 7 Security | Corporate Guards & Mobile Patrols Australia",
   description: "Professional security guard and mobile patrol services in Australia. Corporate security, alarm response, and 24/7 protection for businesses.",
   keywords: ["Security Guards Australia", "Corporate Security", "Mobile Patrols", "Security Services Australia", "Alarm Response", "Static Guards"],
   icons: {
