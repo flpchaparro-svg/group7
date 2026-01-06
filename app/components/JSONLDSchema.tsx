@@ -4,11 +4,11 @@ export default function JSONLDSchema() {
     "@type": ["LocalBusiness", "SecurityService"],
     "name": "Group 7 Security",
     "url": "https://group7security.com.au",
-    "logo": "https://group7security.com.au/images/logo.webp", 
+    "logo": "https://group7security.com.au/images/logo.webp",
     "image": "https://group7security.com.au/images/home-hero-bg.webp",
     "description": "Professional security guard and mobile patrol services in Sydney and Australia. ISO 9001 certified corporate protection.",
-    "telephone": "+61 400 000 000", // CHANGE THIS to your real mobile/landline
-    "email": "info@group7security.com.au", // CHANGE THIS
+    "telephone": "+61 400 000 000", // <<<< CHANGE THIS to your real phone number
+    "email": "info@group7security.com.au", // <<<< CHANGE THIS to your real email
     "priceRange": "$$",
     "areaServed": [
       {
@@ -19,21 +19,19 @@ export default function JSONLDSchema() {
         "@type": "State",
         "name": "New South Wales"
       },
-       {
+      {
         "@type": "Country",
         "name": "Australia"
       }
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Level 1, 100 George St", // CHANGE THIS (Use your registered business address)
-      "addressLocality": "Parramatta", // CHANGE THIS
+      "streetAddress": "Level 1, 100 George St", // <<<< CHANGE THIS to your real address
+      "addressLocality": "Parramatta", // <<<< CHANGE THIS to your suburb
       "addressRegion": "NSW",
-      "postalCode": "2150", // CHANGE THIS
+      "postalCode": "2150", // <<<< CHANGE THIS to your postcode
       "addressCountry": "AU"
     },
-    // If you don't have a physical office open to the public, keep the address but 
-    // Google Maps usually requires a verified location.
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
@@ -48,6 +46,10 @@ export default function JSONLDSchema() {
       "opens": "00:00",
       "closes": "23:59"
     },
+    "sameAs": [
+      "https://www.facebook.com/group7security", // <<<< Add your social links if you have them
+      "https://www.linkedin.com/company/group7security"
+    ],
     "serviceType": [
       "Security Guard Services",
       "Mobile Patrols",
