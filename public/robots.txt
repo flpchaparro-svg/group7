@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://group7security.com.au/sitemap.xml
+

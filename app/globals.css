@@ -1,26 +1,300 @@
 @import "tailwindcss";
 
+* {
+  cursor: none !important;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f1e3c;
+  --foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-montserrat);
+  --font-mono: var(--font-space-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px; /* Increased base font size for better readability */
+}
+
+/* Glass Morphism Effect */
+.nav-glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Fade In Up Animation */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Font Mono System */
+.font-mono-sys {
+  font-family: var(--font-space-mono), monospace;
+}
+
+/* Decrypt/Glitch Animation */
+@keyframes decrypt {
+  0% {
+    letter-spacing: -0.15em;
+    opacity: 0;
+    filter: blur(8px);
+  }
+  100% {
+    letter-spacing: -0.02em;
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.animate-decrypt {
+  animation: decrypt 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slow Zoom Animation */
+@keyframes slow-zoom {
+  0% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 25s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Scanline Overlay */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.scanline-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.15), transparent);
+  animation: scanline 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Scroll Animation for Marquee */
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Infinite Scroll Animation for Marquee (duplicated content) */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+/* Static Border Card */
+.static-border-card {
+  background: #0f172a;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Mask Gradient */
+.mask-gradient {
+  mask-image: linear-gradient(to right, transparent 0, black 128px, black calc(100% - 128px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 128px, black calc(100% - 128px), transparent 100%);
+}
+
+/* Premium Hover Card */
+.premium-hover-card {
+  position: relative;
+  background: #0f172a;
+  border-radius: 1rem;
+  z-index: 1;
+  transition: transform 0.3s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.premium-hover-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(800px circle at var(--x, 50%) var(--y, 50%), rgba(59, 130, 246, 0.15), transparent 40%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.premium-hover-card:hover::before {
+  opacity: 1;
+}
+
+.premium-hover-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Delay utilities */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* Form Input Styling - Glassmorphism */
+.custom-input {
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  transition: all 0.3s ease;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.85rem;
+}
+
+.custom-input:focus {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+  outline: none;
+  background-color: #1e293b;
+}
+
+.custom-input:not(:placeholder-shown):valid {
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.1);
+}
+
+.custom-input::placeholder {
+  color: #94a3b8;
+  font-family: var(--font-space-mono), monospace;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* Select Dropdown Arrow */
+.custom-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+}
+
+/* Custom Checkbox */
+.custom-checkbox input:checked + div {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+.custom-checkbox input:checked + div svg {
+  display: block;
+}
+
+/* First Letter Drop Cap */
+.first-letter\:text-5xl::first-letter {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  float: left;
+  margin-right: 0.75rem;
+  margin-top: -4px;
+}
+
+/* Unified Image Overlay Effect */
+.g7-image-overlay {
+  background: #000;
+  overflow: hidden;
+}
+
+.g7-image-overlay img {
+  opacity: 0.5;
+  transition: opacity 0.5s ease-out;
+}
+
+.g7-image-overlay:hover img {
+  opacity: 0.8;
+}
+
+/* Brighten on Hover Effect */
+.g7-brighten-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.g7-brighten-on-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* INITIAL STATE: Almost clear (just 5% dark to define edges) */
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: background-color 0.5s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.g7-brighten-on-hover:hover::after {
+  /* HOVER STATE: Adds a "White/Light Blue" flash to brighten the image */
+  background-color: rgba(220, 245, 255, 0.15);
 }
