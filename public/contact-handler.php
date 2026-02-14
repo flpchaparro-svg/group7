@@ -11,15 +11,13 @@
 
 // --- Load PHPMailer ---
 // Composer (if you ran: composer require phpmailer/phpmailer from project root)
-if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
-    require __DIR__ . '/../vendor/autoload.php';
-}
-// Manual load (uncomment if you installed PHPMailer manually, e.g. in public/PHPMailer/)
-// else {
-//     require __DIR__ . '/PHPMailer/src/Exception.php';
-//     require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-//     require __DIR__ . '/PHPMailer/src/SMTP.php';
+// if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+//     require __DIR__ . '/../vendor/autoload.php';
 // }
+// Manual load (PHPMailer in public/PHPMailer/)
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
