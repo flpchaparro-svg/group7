@@ -56,7 +56,7 @@ export default function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-6">
             {/* Quick Links */}
             <div className="flex flex-col gap-5">
-              <h4 className="font-montserrat font-semibold text-slate-900 text-[15px] tracking-tight">Quick Links</h4>
+              <h3 className="font-montserrat font-semibold text-slate-900 text-[15px] tracking-tight">Quick Links</h3>
               <ul className="space-y-3.5">
                 <li>
                   <Link href="/" className="text-[13px] text-slate-500 hover:text-red-600 transition-colors font-mono-sys">
@@ -93,20 +93,20 @@ export default function Footer() {
 
             {/* Industries */}
             <div className="flex flex-col gap-5">
-              <h4 className="font-montserrat font-semibold text-slate-900 text-[15px] tracking-tight">Industries</h4>
+              <h3 className="font-montserrat font-semibold text-slate-900 text-[15px] tracking-tight">Industries</h3>
               <ul className="space-y-3.5">
                 <li>
-                  <span className="text-[13px] text-slate-400 font-mono-sys">
+                  <span className="text-[13px] text-slate-500 font-mono-sys">
                     Construction Sites
                   </span>
                 </li>
                 <li>
-                  <span className="text-[13px] text-slate-400 font-mono-sys">
+                  <span className="text-[13px] text-slate-500 font-mono-sys">
                     Retail &amp; Loss Prevention
                   </span>
                 </li>
                 <li>
-                  <span className="text-[13px] text-slate-400 font-mono-sys">
+                  <span className="text-[13px] text-slate-500 font-mono-sys">
                     Strata &amp; Residential
                   </span>
                 </li>
@@ -115,7 +115,7 @@ export default function Footer() {
 
             {/* Trust & Compliance */}
             <div className="flex flex-col gap-5">
-              <h4 className="font-montserrat font-semibold text-slate-900 text-[15px] tracking-tight">Trust &amp; Compliance</h4>
+              <h3 className="font-montserrat font-semibold text-slate-900 text-[15px] tracking-tight">Trust &amp; Compliance</h3>
               <ul className="space-y-3.5">
                 <li className="flex items-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check text-green-600">
@@ -125,7 +125,7 @@ export default function Footer() {
                   <span className="text-[13px] text-slate-500 font-mono-sys">NSW Master Licence</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-badge text-slate-400 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-badge text-slate-500 mt-0.5">
                     <path d="M12 15h.01"></path>
                     <path d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"></path>
                     <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>

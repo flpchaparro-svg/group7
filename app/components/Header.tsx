@@ -99,6 +99,7 @@ export default function Header() {
         <div className="flex items-center gap-3 shrink-0 z-10">
           <a
             href="tel:+61294025389"
+            aria-label="Call Group 7 Security 24/7 Operations"
             className="group relative inline-flex items-center justify-center overflow-hidden font-mono font-bold text-white transition-all duration-300 bg-red-600 rounded-lg hover:bg-red-700 hover:shadow-[0_0_20px_-5px_rgba(220,38,38,0.6)] focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-900"
           >
             <div className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-0 bg-gradient-to-b from-transparent via-transparent to-black/20 group-hover:opacity-100 transition-opacity duration-300"></div>

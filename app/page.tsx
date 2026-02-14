@@ -16,7 +16,8 @@ export default function Home() {
             src="/images/home-hero-bg.webp"
             alt="Sydney Harbour Security"
             fill
-          priority
+            priority={true}
+            sizes="100vw"
             className="object-cover object-center animate-slow-zoom -z-10"
           />
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay z-10"></div>
@@ -331,6 +332,7 @@ export default function Home() {
                   </Link>
                   <Link
                     href="/corporate"
+                    aria-label="View Corporate Security Solutions"
                     className="h-14 w-14 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-600 group-hover:border-blue-500"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
@@ -418,6 +420,7 @@ export default function Home() {
                   </Link>
                   <Link
                     href="/sme"
+                    aria-label="View Business Security Solutions"
                     className="h-14 w-14 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white transition-all duration-500 group-hover:scale-110 group-hover:bg-red-600 group-hover:border-red-500"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
@@ -447,6 +450,7 @@ export default function Home() {
                   src="/images/home-focus-bg.webp"
                   alt="Professional Focus"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-top"
                 />
                 <div className="bg-[#0f172a]/10 absolute top-0 right-0 bottom-0 left-0 z-20"></div>
@@ -456,13 +460,13 @@ export default function Home() {
             {/* Right Column: Specialized Commercial Expertise + 3 Cards */}
             <div className="flex flex-col gap-6 pt-0 lg:pt-4 h-full">
               <div className="p-6 rounded-xl border border-blue-500/20 bg-blue-500/5">
-                <h4 className="text-blue-400 font-bold font-montserrat mb-2 flex items-center gap-2">
+                <h3 className="text-blue-400 font-bold font-montserrat mb-2 flex items-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                   </svg>
                   Specialized Commercial Expertise
-                </h4>
+                </h3>
                 <p className="text-sm text-slate-300 font-inter">
                   By dedicating our operations exclusively to commercial and government sectors, we ensure our team is trained specifically for your environment. We provide career security officers focused on asset protection and safety compliance.
                 </p>

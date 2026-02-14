@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Montserrat, Space_Mono } from "next/font/google";
 import "./globals.css";
-import TacticalCursor from "./components/TacticalCursor";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
@@ -74,7 +73,6 @@ export default function RootLayout({
         <JSONLDSchema />
         <ModalProvider>
           <Preloader />
-          <TacticalCursor />
           <Header />
           {children}
           <Footer />
