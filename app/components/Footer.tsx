@@ -146,10 +146,12 @@ export default function Footer() {
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6 md:gap-4">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-center md:text-left">
             <p className="text-[11px] text-slate-500 font-medium">© 2025 Group 7 Security Pty Ltd</p>
+            
             <div className="hidden md:block w-1 h-1 bg-slate-300 rounded-full"></div>
-            <a href="tel:+61294025389" className="text-[11px] text-slate-600 font-semibold tracking-wide">
-              24/7 Emergency: (02) 9402 5389
-            </a>
+            
+            <Link href="/privacy" className="text-[11px] text-slate-500 hover:text-red-600 transition-colors font-medium">
+              Privacy Policy
+            </Link>
           </div>
 
           {/* Social Links */}

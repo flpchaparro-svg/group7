@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Montserrat, Space_Mono } from "next/font/google";
 import "./globals.css";
 import TacticalCursor from "./components/TacticalCursor";
@@ -57,6 +58,19 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${spaceMono.variable} antialiased`}
       >
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-VMYXZP34RP`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VMYXZP34RP');
+          `}
+        </Script>
         <JSONLDSchema />
         <ModalProvider>
           <Preloader />

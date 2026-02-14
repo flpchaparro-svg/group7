@@ -7,8 +7,8 @@ export default function JSONLDSchema() {
     "logo": "https://group7security.com.au/images/logo.webp",
     "image": "https://group7security.com.au/images/home-hero-bg.webp",
     "description": "Professional security guard and mobile patrol services in Sydney and Australia. ISO 9001 certified corporate protection.",
-    "telephone": "+61 400 000 000", // <<<< CHANGE THIS to your real phone number
-    "email": "info@group7security.com.au", // <<<< CHANGE THIS to your real email
+    "telephone": "+61 2 9402 5389",
+    "email": "info@group7security.com.au",
     "priceRange": "$$",
     "areaServed": [
       {
@@ -26,10 +26,10 @@ export default function JSONLDSchema() {
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Level 1, 100 George St", // <<<< CHANGE THIS to your real address
-      "addressLocality": "Parramatta", // <<<< CHANGE THIS to your suburb
+      "streetAddress": "749-757 Bourke St",
+      "addressLocality": "Redfern",
       "addressRegion": "NSW",
-      "postalCode": "2150", // <<<< CHANGE THIS to your postcode
+      "postalCode": "2016",
       "addressCountry": "AU"
     },
     "openingHoursSpecification": {

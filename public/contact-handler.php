@@ -1,6 +1,29 @@
 <?php
-// Contact Form Handler for Group 7 Security
-// Handles both Corporate and Business inquiry forms
+/**
+ * Contact Form Handler for Group 7 Security
+ * Uses PHPMailer with SMTP (Hostinger) to reduce spam and improve deliverability.
+ *
+ * PHPMailer installation:
+ *   Option A - Composer (recommended): Run in project root:  composer require phpmailer/phpmailer
+ *   Option B - Manual: Download from https://github.com/PHPMailer/PHPMailer/releases
+ *     Extract to e.g. public/PHPMailer/ and uncomment the "Manual load" block below, comment out the Composer block.
+ */
+
+// --- Load PHPMailer ---
+// Composer (if you ran: composer require phpmailer/phpmailer from project root)
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require __DIR__ . '/../vendor/autoload.php';
+}
+// Manual load (uncomment if you installed PHPMailer manually, e.g. in public/PHPMailer/)
+// else {
+//     require __DIR__ . '/PHPMailer/src/Exception.php';
+//     require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+//     require __DIR__ . '/PHPMailer/src/SMTP.php';
+// }
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 // Set headers to prevent caching
 header('Cache-Control: no-cache, must-revalidate');
@@ -15,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 // Sanitize and retrieve form data
 $inquiry_type = isset($_POST['inquiry_type']) ? htmlspecialchars(trim($_POST['inquiry_type']), ENT_QUOTES, 'UTF-8') : 'Unknown Inquiry';
 
-// Email configuration
-$to = "info@group7security.com.au";
+// Email configuration - To address (you receive here)
+$to_address = "info@group7security.com.au";
 $subject = "New " . $inquiry_type . " from Group 7 Security Website";
 
 // Initialize email body
@@ -51,7 +74,6 @@ if ($inquiry_type == "Corporate Inquiry") {
 // Process Business Form fields
 elseif ($inquiry_type == "Business Inquiry") {
     $name = isset($_POST['sme-name']) ? htmlspecialchars(trim($_POST['sme-name']), ENT_QUOTES, 'UTF-8') : '';
-    // CAPTURE EMAIL:
     $email = isset($_POST['sme-email']) ? htmlspecialchars(trim($_POST['sme-email']), ENT_QUOTES, 'UTF-8') : '';
     $business = isset($_POST['sme-business']) ? htmlspecialchars(trim($_POST['sme-business']), ENT_QUOTES, 'UTF-8') : '';
     $phone = isset($_POST['sme-phone']) ? htmlspecialchars(trim($_POST['sme-phone']), ENT_QUOTES, 'UTF-8') : '';
@@ -69,7 +91,6 @@ elseif ($inquiry_type == "Business Inquiry") {
     }
     $email_body .= "Urgent Emergency: " . $urgent . "\n";
     
-    // Set Reply-To
     if (!empty($email)) {
         $reply_to = $email;
     } else {
@@ -86,28 +107,36 @@ if ($inquiry_type == "Corporate Inquiry") {
 }
 
 if (!$is_valid) {
-    // Invalid submission - redirect back
     echo "<script>alert('Please fill in all required fields.'); window.location.href = '/';</script>";
     exit;
 }
 
-// Prepare email headers
-$headers = "From: website@group7security.com.au\r\n";
-$headers .= "Reply-To: " . $reply_to . "\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+// --- PHPMailer SMTP (Hostinger) ---
+$mail = new PHPMailer(true);
+try {
+    // Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.hostinger.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'info@group7security.com.au';
+    $mail->Password   = '@64Uasipoge64';  // TODO: Replace with your real mailbox password
+    $mail->SMTPSecure = 'ssl';   // SSL/SMTPS
+    $mail->Port       = 465;
+    $mail->CharSet    = 'UTF-8';
 
-// Send email
-$mail_sent = mail($to, $subject, $email_body, $headers);
+    // Recipients: To = you (required)
+    $mail->setFrom('info@group7security.com.au', 'Website Contact Form');
+    $mail->addAddress($to_address);   // info@group7security.com.au
+    $mail->addReplyTo($reply_to);     // Visitor's email so you can reply directly
 
-// Return response
-if ($mail_sent) {
-    // Success - show alert and redirect
+    // Content
+    $mail->Subject = $subject;
+    $mail->Body    = $email_body;
+    $mail->isHTML(false);
+
+    $mail->send();
     echo "<script>alert('Message Sent'); window.location.href = '/';</script>";
-} else {
-    // Error - show alert and redirect
+} catch (Exception $e) {
     echo "<script>alert('There was an error sending your message. Please try again or call us directly.'); window.location.href = '/';</script>";
 }
 exit;
-?>
-
